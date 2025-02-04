@@ -1,2 +1,2 @@
 # Infekja
-The macOS Malware Analyzer CLI Too
+The macOS Malware Analyzer CLI Tool!
