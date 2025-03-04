@@ -80,7 +80,7 @@ def info(vt: bool = typer.Option(False, "-vt")):
   jgs  `.__.-.__.'
     """
     console.print("About", style="bold") #REMINDER update readme txt
-    console.print("""Infekja is macOS Malware Analyzer CLI Tool designed to streamline and simplify the process of examining potentially malicious macOS malware. 
+    console.print("""Infekja is a macOS Malware Analyzer CLI Tool designed to streamline and simplify the process of examining potentially malicious macOS malware. 
 By utilizing native macOS commands to analyze files and software, and enriching the gathered information through tools like VirusTotal, Infekja helps assess the likelihood of malicious behavior. Check out the readme file for detailed information on how best leverage Infekja to aid in your analysis or use simply use the '--help' command to get started!\n""")
     console.print("Behind the Name", style="bold")
     console.print("Derived from the Bosnian words infection ('infekcija') and apple ('jabuka').")
