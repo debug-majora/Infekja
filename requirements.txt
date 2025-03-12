@@ -1,0 +1,5 @@
+typer
+rich
+vt-py
+requests
+python-dotenv
