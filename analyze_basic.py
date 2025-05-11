@@ -25,7 +25,7 @@ API_KEY = os.getenv("VT_API_KEY")
 
 @app.command()
 
-def analyze(file_path: str, p: bool = typer.Option(False, "-p")):
+def analyze(file_path: str):
     "Basic analysis against a DMG or PKG: 'python3 main.py analyze ~/Desktop/Malware/AMOS.dmg'"
     # Check if the file exists
     if not os.path.exists(file_path):
@@ -33,15 +33,10 @@ def analyze(file_path: str, p: bool = typer.Option(False, "-p")):
         raise typer.Exit(code=1)
     console.print(f"\n🔦 Analysis of: {file_path}\n", style="hot_pink2") #colors https://rich.readthedocs.io/en/stable/appendix/colors.html
 
-    #if p:
-    #   print("test ignore")
-
     for i in track(range(2), description="Running cmds..."):
         time.sleep(0.3) # https://rich.readthedocs.io/en/stable/progress.html 
 
-    # Run the 'file' cmd. REMINDER include cond statement IF zlib format THEN likely DMG + expand with something else?
-    # or maybe include in the 'resources" section? https://newosxbook.com/DMG.html 
-    # final edit: frankg suggested using "mdls" and specifying common metadata keys. ref https://developer.apple.com/documentation/coreservices/file_metadata/mditem/common_metadata_attribute_keys
+    # frankg suggestion on using "mdls" and specifying common metadata keys. ref https://developer.apple.com/documentation/coreservices/file_metadata/mditem/common_metadata_attribute_keys
     try:
         file_result = subprocess.run(["mdls", "-attr", "kMDItemContentType", "-attr", "kMDItemKind", "-attr", "kMDItemWhereFroms", file_path], capture_output=True, text=True, check=True)
         console.print("[bright_green]\nFile Type:", end= " ") # end ensures that the next line appears ON THE same line
@@ -127,7 +122,7 @@ def analyze(file_path: str, p: bool = typer.Option(False, "-p")):
             community_score = response_data["data"]["attributes"]["reputation"]
             #popular_threat_name = response.data["popular_threat_classification"]["popular_threat_name"]
 
-            # Convert to local time. ChatGPT'd converting UTC to users local time
+            # Convert to users local time 
             first_submitted_date = time.strftime('%Y-%m-%d', time.localtime(first_submitted_date))
             last_submission_date= time.strftime('%Y-%m-%d', time.localtime(last_submission_date)) 
 
