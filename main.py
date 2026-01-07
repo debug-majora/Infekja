@@ -67,7 +67,7 @@ def info(vt: bool = typer.Option(False, "-vt")):
     console.print("\nInfekja 🦠 🍎\n", style="bold red")
     #console.print("\nInInfekja: Derived from the Bosnian words infection (infekcija) and apple (jabuka) 🦠 🍎\n", style="bold red")
 
-    console.print("About", style="bold") #REMINDER update readme txt
+    console.print("About", style="bold")
     console.print("Derived from the Bosnian words infection ('infekcija') and apple ('jabuka'), Infekja is a macOS Malware Analyzer CLI Tool designed to streamline and simplify the process of examining potentially malicious macOS malware. By utilizing native macOS commands to analyze files and software, and enriching the gathered information through tools like VirusTotal, Infekja helps assess the likelihood of malicious behavior. Use the 'analyze' command to get started!""")
 
 # SECOND COMMAND: Setup.
