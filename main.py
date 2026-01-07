@@ -43,7 +43,7 @@ def main(ctx: typer.Context):
     if ctx.invoked_subcommand is None:
         # Display welcome message if no command is provided
         display_welcome_message()
-        console.print("Use '--help' to view all available commands, or 'info' to get a basic rundown on how Infekja works and its background.")
+        console.print("Use '--help' to view all available commands, or 'info' to get a basic rundown on how Infekja works and its background (e.g: 'python3 main.py --help').")
 
 # FIRST COMMAND: "Info". Basic intro to the tool. Has optional '-vt' flag
 
@@ -79,7 +79,7 @@ def Setup():
     console.print("\nInfekja leverages VirusTotal and CTIX to enrich and analyze the sample being investigated. 🧙🏽\nYou will have to provide your own API Keys to utilize these features. Please refer to the README file for step by step instructions, or follow the steps below:\n", style="aquamarine1")
     console.print("Step One: Edit your '.env' file to include these values: VT_API_KEY = 'your_secret_key', CTIX_API_KEY = 'your_secret_key'", style="bold")
     console.print("\nStep Two: Save the changes to your '.env' file", style="bold")
-    console.print("\nStep Three: All done 💯", style="bold")    
+    console.print("\nStep Three: All done 💯", style="bold") 
 
 # THIRD COMMAND: "analyze". Used to analyze sus DMGs (tbd pkgs)
 # Moved to own Python Module, "analyze_baisc.py"
