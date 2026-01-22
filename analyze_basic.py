@@ -156,12 +156,14 @@ def analyze(file_path: str):
             response = requests.get(url, headers=headers)
             response_data = response.json()
 
-    sigma_results_1 = [] #added these because I was running into a unboundlocalerror. Get feedback if this is best practice
+    sigma_results_1 = []  # Good practice
     sigma_results_2 = []
+    dropped_file_name = "Unknown file name"  # Add this
+    dropped_file_name_2 = "Unknown file name"  # Add this
 
-    if "data" in response_data and response_data["data"]: #REMINDER. This format pulls "sections" from the overall JSON "dropped_files" output. Just call which field you need
+    if "data" in response_data and response_data["data"]:
         attributes_1 = response_data["data"][0].get("attributes", {})
-        dropped_file_name = attributes_1.get("meaningful_name")
+        dropped_file_name = attributes_1.get("meaningful_name", "Unknown file name")  # Also add default here
         sigma_results_1 = attributes_1.get("sigma_analysis_results", [])
         
     if len(response_data["data"]) > 1:
