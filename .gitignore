@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environments
+.env
+.env.*
+.venv/
+venv/
+
+# Logs
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
